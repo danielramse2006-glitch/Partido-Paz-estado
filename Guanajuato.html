@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4c1d62">
+<title>PAZ Guanajuato — Propuesta visual</title>
+<style>
+:root{
+  --uva:#4c1d62;
+  --uva2:#6b2d83;
+  --lila:#a986cf;
+  --oro:#d89a45;
+  --terracota:#b75c47;
+  --crema:#f6efe5;
+  --crema2:#fffaf4;
+  --tinta:#251d27;
+  --muted:#756a78;
+  --line:#e9dedf;
+  --white:#fff;
+  --shadow:0 22px 60px rgba(66,25,78,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--crema2);
+  color:var(--tinta);
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+
+.demo{
+  background:#2a142f;color:#fff;text-align:center;padding:8px 14px;
+  font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase
+}
+
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,250,244,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(76,29,98,.10)
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand img{width:58px;height:58px;object-fit:cover;border-radius:15px;box-shadow:0 8px 20px rgba(76,29,98,.11)}
+.brand small{display:block;color:var(--uva2);font-size:9px;letter-spacing:.13em;margin-top:2px}
+.links{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:800}
+.cta{background:var(--uva);color:#fff;padding:11px 17px;border-radius:999px}
+
+/* HERO - warm colonial / editorial composition */
+.hero{
+  position:relative;
+  min-height:730px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 72% 15%,rgba(216,154,69,.22),transparent 24%),
+    linear-gradient(120deg,var(--crema2) 0 52%,#ead8c5 52% 100%);
+}
+.hero:before{
+  content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;
+  border:55px solid rgba(76,29,98,.07);border-radius:50%
+}
+.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;padding:60px 0}
+.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:900;color:var(--terracota)}
+.hero h1{
+  font-size:clamp(52px,7vw,92px);
+  line-height:.88;letter-spacing:-.055em;margin:16px 0 22px
+}
+.hero h1 span{color:var(--uva)}
+.hero p{font-size:17px;line-height:1.72;color:var(--muted);max-width:560px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
+.btn{padding:13px 18px;border-radius:999px;font-weight:900;font-size:13px;display:inline-flex;justify-content:center}
+.btn-main{background:var(--uva);color:white}
+.btn-alt{border:1px solid var(--uva);color:var(--uva);background:#fff}
+.signature{
+  margin-top:28px;display:inline-block;padding:14px 17px;
+  background:#fff;border-radius:18px;box-shadow:0 12px 35px rgba(76,29,98,.07);
+  border-left:4px solid var(--oro);font-size:13px;color:#655c67
+}
+.visual{position:relative;min-height:590px}
+.mainshot{
+  position:absolute;inset:0 6% 0 10%;
+  border-radius:38px 38px 130px 38px;overflow:hidden;box-shadow:var(--shadow)
+}
+.mainshot img{width:100%;height:100%;object-fit:cover}
+.mainshot:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 66%,rgba(43,14,50,.45))
+}
+.stamp{
+  position:absolute;left:-10px;bottom:42px;width:170px;height:170px;border-radius:50%;
+  display:grid;place-items:center;text-align:center;background:var(--uva);color:white;
+  border:12px solid var(--crema2);box-shadow:var(--shadow);font-weight:900
+}
+.stamp strong{font-size:44px;display:block;line-height:1}
+.stamp span{font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+
+/* PRINCIPLES */
+.principles{background:var(--uva);color:white;padding:34px 0}
+.principle-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.principle{padding:24px 28px;border-right:1px solid rgba(255,255,255,.18)}
+.principle:last-child{border-right:0}
+.principle small{color:#d7bbdf;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.principle h3{margin:7px 0 0;font-size:26px}
+
+/* ABOUT */
+.about{padding:92px 0;background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--uva2);font-weight:900}
+.about h2,.territory h2,.actualidad h2,.join h2{
+  font-size:clamp(38px,5vw,62px);line-height:.98;letter-spacing:-.045em;margin:12px 0 20px
+}
+.about .lead{font-size:18px;line-height:1.78;color:var(--muted)}
+.quote{
+  background:var(--crema);border-radius:30px;padding:34px;position:relative;overflow:hidden
+}
+.quote:before{
+  content:"“";position:absolute;right:20px;top:-15px;font-size:150px;line-height:1;color:rgba(76,29,98,.08);font-family:Georgia,serif
+}
+.quote p{font-size:27px;line-height:1.28;margin:0 0 18px;color:var(--uva);font-weight:800}
+.quote small{color:var(--muted)}
+
+/* TERRITORY */
+.territory{padding:82px 0;background:#efe1d4}
+.territory-top{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end;margin-bottom:30px}
+.territory-top p{color:var(--muted);line-height:1.65;margin:0}
+.region-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.region-main{
+  min-height:520px;border-radius:34px;overflow:hidden;position:relative;background:#222
+}
+.region-main img{width:100%;height:100%;object-fit:cover}
+.region-main:after{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(35,12,42,.72))
+}
+.region-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:26px;color:#fff}
+.region-copy span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#f1c98f}
+.region-copy h3{font-size:40px;margin:7px 0}
+.sidepanel{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.metric,.identity{
+  border-radius:30px;padding:32px;display:flex;flex-direction:column;justify-content:space-between
+}
+.metric{background:var(--oro);color:#2a182d}
+.metric strong{font-size:82px;line-height:.9}
+.metric span{font-weight:900;font-size:20px}
+.identity{background:var(--uva);color:white}
+.identity h3{font-size:30px;margin:0 0 10px}
+.identity p{margin:0;color:#eaddef;line-height:1.6}
+
+/* ACTUALIDAD */
+.actualidad{padding:90px 0;background:#fff}
+.newsgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}
+.newsimage{
+  border-radius:30px;overflow:hidden;min-height:520px;background:#eee
+}
+.newsimage img{width:100%;height:100%;object-fit:cover}
+.newsstack{display:grid;gap:18px}
+.news{
+  border-radius:28px;padding:30px;background:var(--crema);border:1px solid #ede0d5
+}
+.news.feature{background:var(--uva);color:#fff;border:0}
+.news .tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--terracota)}
+.news.feature .tag{color:#e8c9ef}
+.news h3{font-size:27px;line-height:1.12;margin:10px 0}
+.news p{color:var(--muted);line-height:1.65;margin-bottom:0}
+.news.feature p{color:#e9ddea}
+
+/* JOIN */
+.join{padding:86px 0;background:linear-gradient(135deg,#2b1332,#5b216e);color:#fff}
+.joinbox{display:grid;grid-template-columns:1fr .9fr;gap:48px;align-items:center}
+.join .eyebrow{color:#e4b989}
+.join p{color:#e7dbe9;line-height:1.75}
+.channels{display:grid;gap:12px}
+.channel{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);
+  border-radius:18px;padding:17px 18px;display:flex;justify-content:space-between;gap:20px
+}
+.channel b{color:#fff}
+.channel span{color:#d9c7dd}
+
+footer{background:#1e1520;color:white;padding:32px 0}
+.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer img{width:50px;height:50px;border-radius:12px;object-fit:cover}
+.footer small{color:#ffffff9b;line-height:1.6}
+
+@media(max-width:900px){
+  .links a:not(.cta){display:none}
+  .hero-grid,.about-grid,.territory-top,.region-grid,.newsgrid,.joinbox{grid-template-columns:1fr}
+  .hero{background:var(--crema2)}
+  .visual{min-height:520px}
+  .principle-grid{grid-template-columns:1fr}
+  .principle{border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 22px,1180px)}
+  .nav{height:70px}
+  .brand img{width:50px;height:50px}
+  .hero-grid{padding:38px 0 54px;gap:34px}
+  .hero h1{font-size:56px}
+  .hero p{font-size:15px}
+  .visual{min-height:450px}
+  .mainshot{inset:0;border-radius:26px 26px 90px 26px}
+  .stamp{width:130px;height:130px;left:-3px;bottom:20px;border-width:8px}
+  .stamp strong{font-size:34px}
+  .about,.territory,.actualidad,.join{padding:62px 0}
+  .about h2,.territory h2,.actualidad h2,.join h2{font-size:42px}
+  .region-main,.newsimage{min-height:420px}
+  .sidepanel{grid-template-rows:auto auto}
+  .metric strong{font-size:64px}
+  .footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demo">Propuesta visual · Sitio demostrativo para PAZ Guanajuato</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio">
+      <img src="logo-paz-gto.jpg" alt="PAZ Guanajuato">
+      <div>PAZ Guanajuato<small>IDENTIDAD ESTATAL</small></div>
+    </a>
+    <nav class="links">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#territorio">Guanajuato</a>
+      <a href="#actualidad">Actualidad</a>
+      <a href="#participa" class="cta">Participa</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Guanajuato · México</div>
+      <h1>LA PAZ<br>NO SE ESPERA.<br><span>SE CONSTRUYE.</span></h1>
+      <p>Una propuesta digital inspirada en la identidad de PAZ Guanajuato: cercana, humana y orientada al servicio de las personas.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#nosotros">Conocer el proyecto</a>
+        <a class="btn btn-alt" href="#actualidad">Ver actualidad</a>
+      </div>
+      <div class="signature">Justicia sin impunidad · Trabajo digno · Comunidad activa</div>
+    </div>
+
+    <div class="visual">
+      <div class="mainshot">
+        <img src="guanajuato-paz.jpg" alt="Bienvenidos a PAZ Guanajuato">
+      </div>
+      <div class="stamp"><div><strong>PAZ</strong><span>Guanajuato</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="principles">
+  <div class="container principle-grid">
+    <div class="principle"><small>Principio 01</small><h3>Justicia sin impunidad</h3></div>
+    <div class="principle"><small>Principio 02</small><h3>Trabajo digno</h3></div>
+    <div class="principle"><small>Principio 03</small><h3>Comunidad activa</h3></div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Una forma cercana y humana de participar.</h2>
+      <p class="lead">PAZ Guanajuato se presenta como un espacio político y ciudadano orientado a escuchar, organizar y acompañar causas que impactan a las comunidades del estado.</p>
+    </div>
+    <div class="quote">
+      <p>“La PAZ que Guanajuato merece empieza con nosotros.”</p>
+      <small>Mensaje de identidad usado en la comunicación pública de PAZ Guanajuato.</small>
+    </div>
+  </div>
+</section>
+
+<section class="territory" id="territorio">
+  <div class="container">
+    <div class="territory-top">
+      <div>
+        <div class="eyebrow">Territorio</div>
+        <h2>Guanajuato tiene alma, historia y comunidad.</h2>
+      </div>
+      <p>La versión completa puede organizar noticias, enlaces y actividades por municipio, manteniendo una sola identidad estatal.</p>
+    </div>
+
+    <div class="region-grid">
+      <article class="region-main">
+        <img src="guanajuato-paz.jpg" alt="Guanajuato">
+        <div class="region-copy">
+          <span>Identidad territorial</span>
+          <h3>Guanajuato</h3>
+        </div>
+      </article>
+
+      <div class="sidepanel">
+        <div class="metric">
+          <div class="eyebrow" style="color:#5f2e29">Presencia estatal</div>
+          <div><strong>46</strong><br><span>municipios</span></div>
+        </div>
+        <div class="identity">
+          <div>
+            <div class="eyebrow" style="color:#d8b7df">Visión digital</div>
+            <h3>Una misma voz, distintos municipios.</h3>
+            <p>Un portal puede centralizar comunicados, representantes, actividades y participación sin perder la identidad regional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="actualidad" id="actualidad">
+  <div class="container">
+    <div class="eyebrow">Actualidad</div>
+    <h2>Noticias y comunicados.</h2>
+
+    <div class="newsgrid">
+      <div class="newsimage">
+        <img src="reconocimiento-gto.jpg" alt="Comunicado PAZ Guanajuato">
+      </div>
+
+      <div class="newsstack">
+        <article class="news feature">
+          <div class="tag">Comunicados</div>
+          <h3>Espacio institucional para mensajes oficiales.</h3>
+          <p>La página puede publicar posicionamientos, felicitaciones, nombramientos y actividades con imagen, fecha, categoría y autor.</p>
+        </article>
+
+        <article class="news">
+          <div class="tag">Organización</div>
+          <h3>Contenido administrable desde un panel.</h3>
+          <p>Noticias, eventos, representantes y documentos pueden integrarse posteriormente a una base de datos y ser actualizados sin editar el código.</p>
+        </article>
+
+        <article class="news">
+          <div class="tag">Identidad</div>
+          <h3>Guanajuato con una estética propia.</h3>
+          <p>Morado institucional combinado con crema, terracota y dorado para conectar con una estética colonial y cálida, diferente a otros estados.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="participa">
+  <div class="container joinbox">
+    <div>
+      <div class="eyebrow">Participa</div>
+      <h2>La paz también se construye participando.</h2>
+      <p>Esta demostración puede evolucionar a una plataforma con formularios, solicitudes ciudadanas, eventos, documentos y administración de contenido.</p>
+      <a class="btn" style="background:#fff;color:#4c1d62" href="https://www.facebook.com/" target="_blank" rel="noopener">Contactar en Facebook</a>
+    </div>
+
+    <div class="channels">
+      <div class="channel"><span>Facebook</span><b>Partido PAZ GTO</b></div>
+      <div class="channel"><span>Campaña</span><b>Guanajuato merece PAZ</b></div>
+      <div class="channel"><span>Mensaje</span><b>La paz se construye</b></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer">
+    <div style="display:flex;gap:12px;align-items:center">
+      <img src="logo-paz-gto.jpg" alt="PAZ Guanajuato">
+      <div><b>PAZ Guanajuato</b><br><small>Propuesta visual demostrativa.</small></div>
+    </div>
+    <small>Sitio estático preparado para GitHub Pages.<br>Todos los archivos se encuentran en la misma carpeta raíz.</small>
+  </div>
+</footer>
+
+</body>
+</html>
