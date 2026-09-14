@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5d1a68">
+<title>PAZ Veracruz — Propuesta visual</title>
+<style>
+:root{
+  --morado:#64206f;
+  --morado-osc:#35103d;
+  --morado-suave:#8e4c99;
+  --azul:#1e7ec0;
+  --azul-claro:#dff2fb;
+  --arena:#f5efe4;
+  --coral:#e27d60;
+  --tinta:#211c24;
+  --gris:#746c77;
+  --linea:#e7dfe8;
+  --blanco:#fff;
+  --sombra:0 20px 60px rgba(57,21,64,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--tinta);
+  background:var(--arena);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1160px,calc(100% - 32px));margin:auto}
+.demo{
+  background:var(--morado-osc);
+  color:#fff;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:8px 16px;
+  text-align:center;
+}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,239,228,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(100,32,111,.12);
+}
+.nav{
+  min-height:78px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand img{
+  width:58px;height:58px;object-fit:cover;
+  border-radius:16px;background:#fff;padding:4px;
+  box-shadow:0 8px 25px rgba(70,20,80,.12)
+}
+.brand small{display:block;color:var(--morado);letter-spacing:.12em;font-size:9px;margin-top:2px}
+nav{display:flex;gap:22px;align-items:center;font-size:13px;font-weight:800}
+.pill{padding:11px 16px;border-radius:999px;background:var(--morado);color:white}
+
+/* HERO */
+.hero{
+  position:relative;
+  padding:58px 0 76px;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(30,126,192,.16),transparent 30%),
+    linear-gradient(180deg,#fbf7f0 0%,var(--arena) 100%);
+}
+.hero:after{
+  content:"";
+  position:absolute;left:-5%;right:-5%;bottom:-34px;height:68px;
+  border-radius:50% 50% 0 0/100% 100% 0 0;
+  background:var(--azul);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:.88fr 1.12fr;
+  gap:52px;
+  align-items:center;
+}
+.kicker{
+  color:var(--azul);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.hero h1{
+  margin:14px 0 20px;
+  font-size:clamp(50px,7vw,88px);
+  line-height:.88;
+  letter-spacing:-.055em;
+}
+.hero h1 .morado{color:var(--morado)}
+.hero h1 .azul{color:var(--azul)}
+.hero p{
+  color:var(--gris);
+  font-size:17px;
+  line-height:1.7;
+  max-width:560px;
+}
+.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+.btn{
+  border-radius:999px;padding:13px 18px;font-weight:900;font-size:13px;
+  display:inline-flex;align-items:center;justify-content:center
+}
+.btn-primary{background:var(--morado);color:#fff}
+.btn-secondary{border:1px solid var(--morado);color:var(--morado);background:#fff8}
+.hero-note{
+  margin-top:30px;padding:16px 18px;border-left:4px solid var(--coral);
+  background:#fff8;border-radius:0 16px 16px 0;color:#5e5561;font-size:13px;line-height:1.5
+}
+.collage{
+  min-height:570px;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  grid-template-rows:1fr 1fr;
+  gap:14px;
+  position:relative;
+}
+.photo{
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  position:relative;
+  background:#ddd;
+}
+.photo.big{grid-row:1/3}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 58%,rgba(38,10,44,.42))
+}
+.citytag{
+  position:absolute;z-index:2;bottom:16px;left:16px;
+  padding:8px 11px;background:#fff;color:var(--morado);
+  border-radius:999px;font-weight:900;font-size:11px;letter-spacing:.08em
+}
+.sun{
+  position:absolute;z-index:4;right:-18px;top:-18px;
+  width:112px;height:112px;border-radius:50%;
+  background:var(--coral);mix-blend-mode:multiply;opacity:.9
+}
+
+/* IMPACT BAND */
+.impact{background:var(--azul);color:#fff;padding:92px 0 58px}
+.impact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.impact h2{font-size:clamp(36px,5vw,64px);line-height:.98;margin:0;letter-spacing:-.04em}
+.impact p{margin:0;color:#e7f6ff;line-height:1.7}
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}
+.number{
+  padding:22px;border:1px solid rgba(255,255,255,.25);
+  border-radius:22px;background:rgba(255,255,255,.08)
+}
+.number strong{font-size:34px;display:block}
+.number span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#e2f5ff}
+
+/* ABOUT */
+.about{padding:90px 0 74px;background:#fff}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--morado);font-weight:900}
+.about h2,.territory h2,.news h2,.join h2{
+  font-size:clamp(38px,5vw,62px);line-height:.98;letter-spacing:-.045em;margin:12px 0 20px
+}
+.about-copy{font-size:18px;line-height:1.8;color:var(--gris)}
+.values{display:grid;gap:14px}
+.value{
+  display:grid;grid-template-columns:58px 1fr;gap:16px;
+  padding:18px;border-radius:22px;background:var(--arena)
+}
+.value .icon{
+  width:58px;height:58px;border-radius:18px;background:var(--morado);
+  color:#fff;display:grid;place-items:center;font-size:24px;font-weight:900
+}
+.value:nth-child(2) .icon{background:var(--azul)}
+.value:nth-child(3) .icon{background:var(--coral)}
+.value h3{margin:3px 0 5px;font-size:18px}
+.value p{margin:0;color:var(--gris);font-size:13px;line-height:1.55}
+
+/* TERRITORY */
+.territory{padding:78px 0;background:var(--morado-osc);color:#fff}
+.territory-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+.territory .eyebrow{color:#8ed4fb}
+.territory h2{margin-bottom:0}
+.territory-head p{max-width:480px;color:#d9cddd;line-height:1.6}
+.citycards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.citycard{
+  min-height:420px;border-radius:28px;overflow:hidden;position:relative;background:#111
+}
+.citycard img{width:100%;height:100%;object-fit:cover}
+.citycard:after{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(25,6,29,.78))
+}
+.citycopy{position:absolute;z-index:2;left:20px;right:20px;bottom:20px}
+.citycopy span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#aee0ff}
+.citycopy h3{font-size:30px;margin:5px 0 0}
+
+/* NEWS */
+.news{padding:86px 0;background:#f8f5ef}
+.news-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.feature{
+  background:#fff;border-radius:30px;padding:34px;
+  box-shadow:0 8px 30px rgba(40,17,45,.06)
+}
+.feature .tag{display:inline-block;background:var(--azul-claro);color:#126aa2;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900}
+.feature h3{font-size:33px;line-height:1.08;margin:16px 0 14px}
+.feature p{color:var(--gris);line-height:1.75}
+.side-stack{display:grid;gap:18px}
+.note{border-radius:28px;padding:28px;color:#fff;min-height:175px}
+.note.purple{background:var(--morado)}
+.note.coral{background:var(--coral)}
+.note h3{margin:7px 0 8px;font-size:24px}
+.note p{margin:0;color:#fffdf4;line-height:1.55;font-size:13px}
+
+/* JOIN */
+.join{padding:84px 0;background:var(--azul-claro)}
+.joinbox{
+  background:#fff;border-radius:36px;padding:44px;
+  display:grid;grid-template-columns:1fr .9fr;gap:36px;align-items:center;
+  box-shadow:var(--sombra)
+}
+.join p{color:var(--gris);line-height:1.7}
+.socials{display:grid;gap:12px}
+.social{
+  padding:16px 18px;border-radius:18px;background:var(--arena);
+  display:flex;justify-content:space-between;align-items:center;font-weight:800
+}
+.social b{color:var(--morado)}
+footer{padding:34px 0;background:#1d1820;color:#fff}
+.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer small{color:#ffffff95;line-height:1.6}
+footer img{width:48px;height:48px;border-radius:12px;object-fit:cover;background:white;padding:3px}
+
+@media(max-width:850px){
+  nav a:not(.pill){display:none}
+  .hero-grid,.impact-grid,.about-grid,.news-grid,.joinbox{grid-template-columns:1fr}
+  .collage{min-height:520px}
+  .citycards{grid-template-columns:1fr 1fr}
+  .citycard:last-child{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 22px,1160px)}
+  .nav{min-height:70px}
+  .brand img{width:50px;height:50px}
+  .hero{padding:38px 0 62px}
+  .hero h1{font-size:56px}
+  .hero p{font-size:15px}
+  .collage{
+    min-height:460px;grid-template-columns:1fr 1fr;grid-template-rows:1.2fr .8fr
+  }
+  .photo.big{grid-row:1/2;grid-column:1/-1}
+  .photo{border-radius:20px}
+  .sun{width:82px;height:82px}
+  .impact{padding-top:78px}
+  .numbers{grid-template-columns:1fr}
+  .about,.territory,.news,.join{padding:62px 0}
+  .about h2,.territory h2,.news h2,.join h2{font-size:42px}
+  .territory-head{display:block}
+  .territory-head p{margin-top:14px}
+  .citycards{grid-template-columns:1fr}
+  .citycard,.citycard:last-child{grid-column:auto;min-height:390px}
+  .joinbox{padding:28px 20px}
+  .footer{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="demo">Propuesta visual · Sitio demostrativo para PAZ Veracruz</div>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="brand">
+      <img src="logo-paz-veracruz.png" alt="PAZ Veracruz">
+      <div>PAZ Veracruz<small>IDENTIDAD ESTATAL</small></div>
+    </a>
+    <nav>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#territorio">Territorio</a>
+      <a href="#actualidad">Actualidad</a>
+      <a class="pill" href="#participa">Participa</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">Veracruz · México</div>
+        <h1><span class="morado">VERACRUZ</span><br><span class="azul">MERECE</span><br>PAZ.</h1>
+        <p>Un espacio institucional para informar, escuchar y acercar la participación ciudadana a las distintas regiones y municipios de Veracruz.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#nosotros">Conoce el proyecto</a>
+          <a class="btn btn-secondary" href="#territorio">Ver territorio</a>
+        </div>
+        <div class="hero-note"><b>Identidad visual propia.</b> Veracruz conserva el morado de PAZ, pero suma azul del Golfo, tonos arena y acentos coral para distinguirse de otras representaciones estatales.</div>
+      </div>
+
+      <div class="collage">
+        <div class="sun"></div>
+        <div class="photo big">
+          <img src="veracruz-paz.jpg" alt="Veracruz merece PAZ">
+          <div class="citytag">Puerto de Veracruz</div>
+        </div>
+        <div class="photo">
+          <img src="cordoba-paz.jpg" alt="Córdoba merece PAZ">
+          <div class="citytag">Córdoba</div>
+        </div>
+        <div class="photo">
+          <img src="papantla-paz.jpg" alt="Papantla merece PAZ">
+          <div class="citytag">Papantla</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact">
+    <div class="container">
+      <div class="impact-grid">
+        <h2>Un estado diverso.<br>Una conversación que debe llegar a todos.</h2>
+        <p>La propuesta visual se inspira en el territorio veracruzano: costa, ciudades, sierra, cultura y comunidades. La intención es que el portal se sienta estatal, cercano y reconocible.</p>
+      </div>
+      <div class="numbers">
+        <div class="number"><strong>212</strong><span>Municipios</span></div>
+        <div class="number"><strong>1</strong><span>Identidad estatal</span></div>
+        <div class="number"><strong>∞</strong><span>Voces por escuchar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="nosotros">
+    <div class="container about-grid">
+      <div>
+        <div class="eyebrow">Quiénes somos</div>
+        <h2>Participación con raíces en Veracruz.</h2>
+        <p class="about-copy">PAZ Veracruz se presenta como un espacio de organización y participación ciudadana orientado al diálogo, la comunidad y la construcción de soluciones desde el territorio.</p>
+      </div>
+      <div class="values">
+        <div class="value">
+          <div class="icon">01</div>
+          <div><h3>Escuchar</h3><p>Recibir propuestas, inquietudes y necesidades de las comunidades.</p></div>
+        </div>
+        <div class="value">
+          <div class="icon">02</div>
+          <div><h3>Conectar</h3><p>Acercar municipios, regiones y personas mediante información clara y canales accesibles.</p></div>
+        </div>
+        <div class="value">
+          <div class="icon">03</div>
+          <div><h3>Construir</h3><p>Transformar la participación en organización, seguimiento y acciones comunitarias.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="territory" id="territorio">
+    <div class="container">
+      <div class="territory-head">
+        <div>
+          <div class="eyebrow">Presencia en el estado</div>
+          <h2>Veracruz se cuenta municipio en municipio.</h2>
+        </div>
+        <p>Una sección visual para destacar actividades, enlaces y noticias regionales sin saturar la página principal.</p>
+      </div>
+      <div class="citycards">
+        <article class="citycard">
+          <img src="veracruz-paz.jpg" alt="Veracruz">
+          <div class="citycopy"><span>Zona centro-costera</span><h3>Veracruz</h3></div>
+        </article>
+        <article class="citycard">
+          <img src="cordoba-paz.jpg" alt="Córdoba">
+          <div class="citycopy"><span>Región de las Altas Montañas</span><h3>Córdoba</h3></div>
+        </article>
+        <article class="citycard">
+          <img src="papantla-paz.jpg" alt="Papantla">
+          <div class="citycopy"><span>Región Totonaca</span><h3>Papantla</h3></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" id="actualidad">
+    <div class="container">
+      <div class="eyebrow">Actualidad</div>
+      <h2>Noticias y comunicados.</h2>
+      <div class="news-grid">
+        <article class="feature">
+          <span class="tag">COMUNICADO</span>
+          <h3>Verdad, justicia y acompañamiento también forman parte de construir paz.</h3>
+          <p>Espacio preparado para comunicar posicionamientos, actividades y mensajes institucionales de PAZ Veracruz con fecha, categoría e imagen destacada.</p>
+          <small style="color:#887e8a">Contenido demostrativo · sustituir por publicación oficial</small>
+        </article>
+        <div class="side-stack">
+          <article class="note purple">
+            <div class="eyebrow" style="color:#dcbfe2">Territorio</div>
+            <h3>Municipio en municipio.</h3>
+            <p>Un módulo para organizar noticias y actividades por región o localidad.</p>
+          </article>
+          <article class="note coral">
+            <div class="eyebrow" style="color:#fff7ee">Comunidad</div>
+            <h3>#VeracruzMerecePaz</h3>
+            <p>Integración de campañas, fotografías y mensajes de redes sociales.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="participa">
+    <div class="container joinbox">
+      <div>
+        <div class="eyebrow">Participa</div>
+        <h2>Tu comunidad también cuenta.</h2>
+        <p>La versión completa puede integrar formulario de contacto, registro de solicitudes, noticias, eventos, documentos y administración por usuarios autorizados.</p>
+        <a class="btn btn-primary" href="https://www.facebook.com/" target="_blank" rel="noopener">Contactar en Facebook</a>
+      </div>
+      <div class="socials">
+        <div class="social"><span>Facebook</span><b>Partido PAZ Veracruz</b></div>
+        <div class="social"><span>Instagram</span><b>@PazConVeracruz</b></div>
+        <div class="social"><span>X</span><b>@PazConVeracruz</b></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="logo-paz-veracruz.png" alt="PAZ Veracruz">
+      <div><b>PAZ Veracruz</b><br><small>Propuesta visual demostrativa.</small></div>
+    </div>
+    <small>#MéxicoMerecePAZ · #VeracruzMerecePaz<br>Diseño preparado para GitHub Pages / hosting estático.</small>
+  </div>
+</footer>
+</body>
+</html>
