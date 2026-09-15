@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#702683">
+  <title>PAZ Aguascalientes</title>
+  <style>
+    :root{
+      --p:#702683;
+      --p2:#8d43a0;
+      --p3:#b06ac2;
+      --ink:#251d29;
+      --muted:#665f6c;
+      --bg:#f7f4f9;
+      --card:#ffffff;
+      --line:#eadff0;
+      --lav:#f3e8f8;
+      --soft:#faf8fc;
+      --gold:#f0bb4e;
+      --green:#e7f4ea;
+      --shadow:0 20px 50px rgba(57,18,67,.10);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px, calc(100% - 32px));margin:auto}
+    .demo{
+      text-align:center;
+      background:#32143b;
+      color:#fff;
+      padding:8px 14px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    header{
+      position:sticky;top:0;z-index:40;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(112,38,131,.08);
+    }
+    .nav{
+      min-height:80px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;font-weight:900}
+    .brand img{width:62px;height:62px;object-fit:cover;border-radius:18px;box-shadow:0 12px 24px rgba(57,18,67,.12)}
+    .brand small{display:block;color:var(--p);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-top:3px}
+    .navlinks{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:700}
+    .navlinks a:hover{color:var(--p)}
+    .btn-top{
+      background:var(--p);color:#fff;padding:12px 18px;border-radius:999px;
+      box-shadow:0 10px 24px rgba(112,38,131,.2)
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(255,255,255,.95), transparent 20%),
+        radial-gradient(circle at 14% 26%, rgba(176,106,194,.16), transparent 24%),
+        linear-gradient(180deg, #fcfbfe 0%, #f7f0fa 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero:before,.hero:after{
+      content:"";position:absolute;border-radius:50%;background:rgba(112,38,131,.06);
+    }
+    .hero:before{width:420px;height:420px;right:-120px;bottom:-160px}
+    .hero:after{width:220px;height:220px;left:-80px;top:60px}
+    .hero-grid{
+      display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:center;
+      min-height:680px;padding:42px 0 54px;position:relative;z-index:1;
+    }
+    .kicker{
+      display:inline-flex;align-items:center;gap:8px;color:var(--p);font-size:11px;font-weight:900;
+      letter-spacing:.18em;text-transform:uppercase;background:#fff;padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(112,38,131,.12);box-shadow:0 10px 24px rgba(57,18,67,.06)
+    }
+    h1{
+      margin:18px 0 16px;
+      font-size:clamp(52px, 7vw, 88px);
+      line-height:.92;
+      letter-spacing:-.06em;
+    }
+    h1 span{color:var(--p)}
+    .hero .lead{
+      font-size:18px;font-weight:800;color:#44394a;margin-bottom:12px
+    }
+    .hero p{font-size:16px;color:var(--muted);max-width:640px;margin:0 0 12px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 20px;border-radius:999px;font-weight:900;font-size:14px
+    }
+    .primary{background:var(--p);color:#fff}
+    .secondary{background:#fff;border:1px solid rgba(112,38,131,.18);color:var(--p)}
+    .stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .stat{
+      background:#fff;border:1px solid rgba(112,38,131,.10);padding:12px 14px;border-radius:18px;
+      box-shadow:0 10px 20px rgba(57,18,67,.05);min-width:120px
+    }
+    .stat strong{display:block;font-size:20px;color:var(--p)}
+    .hero-notes{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;font-size:12px;font-weight:800;color:var(--p)}
+    .hero-notes span{background:#fff;padding:10px 12px;border-radius:999px;border:1px solid rgba(112,38,131,.10)}
+
+    .hero-art{position:relative;min-height:540px}
+    .panel-main{
+      position:absolute;inset:34px 20px 20px 70px;background:#fff;border-radius:36px;overflow:hidden;
+      box-shadow:var(--shadow)
+    }
+    .panel-main img{width:100%;height:100%;object-fit:cover}
+    .panel-main:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.02) 0%, rgba(81,22,94,.18) 100%);
+      pointer-events:none;
+    }
+    .logo-tile{
+      position:absolute;left:0;top:0;width:170px;height:170px;background:#fff;border-radius:30px;padding:12px;
+      box-shadow:var(--shadow);z-index:3
+    }
+    .logo-tile img{width:100%;height:100%;object-fit:cover;border-radius:20px}
+    .floating{
+      position:absolute;right:0;bottom:30px;width:245px;background:linear-gradient(135deg, #fff, #f7edf9);
+      padding:18px 18px 16px;border-radius:22px;box-shadow:var(--shadow);z-index:4
+    }
+    .floating .eyebrow{color:var(--p);font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+    .floating h3{margin:0 0 6px;font-size:22px;line-height:1.05}
+    .floating p{margin:0;color:var(--muted);font-size:14px}
+    .signature{
+      position:absolute;right:10px;top:6px;color:var(--p);font-size:24px;font-style:italic;
+      font-family:Georgia, serif;transform:rotate(-4deg);z-index:4
+    }
+
+    section{padding:72px 0}
+    .section-title{max-width:800px;margin-bottom:26px}
+    .eyebrow{
+      color:var(--p);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+      margin-bottom:12px
+    }
+    h2{margin:0 0 12px;font-size:clamp(34px,5vw,56px);line-height:.95;letter-spacing:-.045em}
+    .section-title p{margin:0;color:var(--muted);font-size:16px}
+
+    .pillars{background:#fff}
+    .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .pillar{
+      background:linear-gradient(180deg, #fff 0%, #fbf8fd 100%);
+      border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 12px 26px rgba(57,18,67,.05)
+    }
+    .pillar .num{font-size:12px;font-weight:900;color:var(--p);letter-spacing:.15em;text-transform:uppercase}
+    .pillar h3{margin:14px 0 8px;font-size:22px;line-height:1}
+    .pillar p{margin:0;color:var(--muted);font-size:14px}
+
+    .story-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:center}
+    .image-card,.content-card,.quote-card,.cta-card,.map-card,.mini-card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)
+    }
+    .image-card{overflow:hidden}
+    .image-card img{width:100%;height:100%;display:block;object-fit:cover}
+    .content-card{padding:34px}
+    .content-card h3{margin:0 0 16px;font-size:36px;line-height:.95;letter-spacing:-.04em}
+    .content-card p{margin:0 0 14px;color:var(--muted);font-size:16px}
+    .bullet-list{display:grid;gap:12px;margin-top:18px}
+    .bullet{display:flex;gap:12px;align-items:flex-start}
+    .bullet i{
+      width:28px;height:28px;border-radius:50%;background:var(--lav);display:inline-flex;align-items:center;justify-content:center;
+      color:var(--p);font-style:normal;font-weight:900;flex:0 0 28px
+    }
+    .tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .tag{padding:10px 12px;border-radius:999px;background:var(--lav);color:var(--p);font-size:12px;font-weight:800}
+
+    .band{background:linear-gradient(135deg, #2d1234, #5b216a 58%, #7d338f);color:#fff;position:relative;overflow:hidden}
+    .band:before{
+      content:"";position:absolute;inset:auto -120px -180px auto;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.08)
+    }
+    .band-grid{display:grid;grid-template-columns:1fr .95fr;gap:24px;align-items:center;position:relative;z-index:1}
+    .band h2,.band p,.band h3{color:#fff}
+    .band .muted{color:rgba(255,255,255,.82)}
+    .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .metric{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:20px}
+    .metric strong{display:block;font-size:32px;line-height:1;margin-bottom:6px}
+    .metric span{font-size:13px;color:rgba(255,255,255,.86)}
+    .map-card{padding:14px;background:#fff;color:var(--ink)}
+    .map-card img{border-radius:18px;width:100%;height:auto}
+    .map-card small{display:block;color:#6b6471;margin-top:10px;line-height:1.5}
+
+    .meaning{background:#fff}
+    .meaning-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:start}
+    .quote-card{padding:34px;background:linear-gradient(180deg, #fff 0%, #fbf7fd 100%)}
+    .quote-big{font-size:38px;line-height:.95;letter-spacing:-.045em;margin:0 0 18px}
+    .quote-big span{color:var(--p)}
+    .checklist{display:grid;gap:14px;margin-top:20px}
+    .check{display:flex;gap:12px;align-items:flex-start}
+    .check b{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--p);color:#fff;font-size:14px;flex:0 0 26px}
+    .check div{color:var(--muted)}
+    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+    .mini-card{padding:18px}
+    .mini-card h4{margin:0 0 8px;font-size:18px}
+    .mini-card p{margin:0;color:var(--muted);font-size:14px}
+
+    .cta{padding-top:0}
+    .cta-card{padding:38px;background:linear-gradient(135deg, #fff 0%, #f7edf9 100%)}
+    .cta-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+    .cta-card h2{font-size:54px;margin-bottom:14px}
+    .cta-card p{color:var(--muted);font-size:16px;margin:0}
+    .cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .contact-box{
+      background:linear-gradient(135deg, #6d287f, #8d43a0);color:#fff;padding:26px;border-radius:26px;box-shadow:var(--shadow)
+    }
+    .contact-box h3{margin:0 0 10px;font-size:26px;line-height:1}
+    .contact-box ul{margin:14px 0 0;padding-left:18px;color:rgba(255,255,255,.9)}
+    .contact-box li{margin-bottom:8px}
+
+    footer{
+      padding:26px 0 42px;border-top:1px solid var(--line);color:#6f6774;font-size:13px;background:#fff
+    }
+    .foot{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+
+    @media (max-width: 1024px){
+      .hero-grid,.story-grid,.band-grid,.meaning-grid,.cta-grid{grid-template-columns:1fr}
+      .pillar-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-art{min-height:600px}
+      .panel-main{inset:64px 10px 20px 20px}
+      .floating{right:10px}
+    }
+    @media (max-width: 720px){
+      .container{width:min(100% - 22px, 1180px)}
+      .nav{min-height:74px}
+      .navlinks{display:none}
+      h1{font-size:54px}
+      h2{font-size:36px}
+      .content-card h3{font-size:30px}
+      .quote-big{font-size:30px}
+      .cta-card h2{font-size:38px}
+      .pillar-grid,.metric-row,.mini-grid{grid-template-columns:1fr}
+      .hero-grid{padding:24px 0 36px;min-height:auto}
+      .hero-art{min-height:470px}
+      .logo-tile{width:128px;height:128px;border-radius:24px}
+      .panel-main{inset:54px 4px 10px 10px;border-radius:28px}
+      .floating{position:relative;width:auto;right:auto;bottom:auto;margin-top:14px}
+      .signature{display:none}
+      section{padding:58px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">Sitio demo en archivo único para GitHub Pages · PAZ Aguascalientes</div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <img src="logo-paz-aguascalientes.jpg" alt="Logo PAZ Aguascalientes">
+        <div>
+          <div>PAZ Aguascalientes</div>
+          <small>familia · solidaridad · reconciliación</small>
+        </div>
+      </a>
+      <nav class="navlinks">
+        <a href="#ejes">Ejes</a>
+        <a href="#justicia">Justicia social</a>
+        <a href="#salud">Salud mental</a>
+        <a href="#significado">Qué es PAZ</a>
+        <a class="btn-top" href="#sumate">Súmate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">PAZ Aguascalientes · propuesta web</div>
+          <h1>Una web con <span>carácter</span>, mensaje y cercanía.</h1>
+          <div class="lead">El Partido de la Familia, la Solidaridad, la Vida, la Paz y la Reconciliación.</div>
+          <p>Esta propuesta traduce el estilo visual de sus publicaciones a una página moderna, clara y responsive: mucho morado, bloques potentes, mensajes directos y una identidad pensada para informar, sumar y dar presencia digital al proyecto en Aguascalientes.</p>
+          <p>La idea es comunicar una PAZ que hable de justicia social, diálogo, salud mental, oportunidades y convivencia digna para todas y todos.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#sumate">Quiero formar parte</a>
+            <a class="btn secondary" href="#justicia">Ver mensajes clave</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>14</strong>Seguidores</div>
+            <div class="stat"><strong>10</strong>Publicaciones</div>
+            <div class="stat"><strong>1</strong>Seguidos</div>
+          </div>
+          <div class="hero-notes">
+            <span>#PAZ</span>
+            <span>#PAZAguascalientes</span>
+            <span>#Aguascalientes</span>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="signature">Aguascalientes también elige PAZ</div>
+          <div class="logo-tile">
+            <img src="logo-paz-aguascalientes.jpg" alt="Identidad gráfica PAZ Aguascalientes">
+          </div>
+          <div class="panel-main">
+            <img src="justicia-social-aguascalientes.jpg" alt="No puede haber paz sin justicia social">
+          </div>
+          <div class="floating">
+            <div class="eyebrow">estilo visual</div>
+            <h3>Directo, humano y reconocible.</h3>
+            <p>Tipografía fuerte, mensajes grandes, contraste alto y una narrativa enfocada en las personas y sus problemas reales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars" id="ejes">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">ejes del sitio</div>
+          <h2>Lo que esta versión de la web quiere transmitir.</h2>
+          <p>Tomando como base las publicaciones compartidas, el sitio se estructura alrededor de cuatro mensajes centrales que pueden escalarse después a noticias, formularios, comités, agenda y contacto oficial.</p>
+        </div>
+        <div class="pillar-grid">
+          <article class="pillar">
+            <div class="num">01 · Justicia social</div>
+            <h3>PAZ con oportunidades</h3>
+            <p>Una narrativa que liga la paz con trabajo digno, desarrollo personal y condiciones justas para salir adelante.</p>
+          </article>
+          <article class="pillar">
+            <div class="num">02 · Salud mental</div>
+            <h3>Hablar salva vidas</h3>
+            <p>Un enfoque sensible y útil para tocar temas de prevención, escucha, empatía y acompañamiento social.</p>
+          </article>
+          <article class="pillar">
+            <div class="num">03 · Diálogo</div>
+            <h3>Diferir sin destruirnos</h3>
+            <p>La paz también se cuenta desde la capacidad de pensar distinto sin volvernos enemigos.</p>
+          </article>
+          <article class="pillar">
+            <div class="num">04 · Comunidad</div>
+            <h3>Familia y reconciliación</h3>
+            <p>Un lenguaje cercano que conecta con barrios, colonias, familias, jóvenes y ciudadanía en general.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="justicia">
+      <div class="container">
+        <div class="story-grid">
+          <div class="image-card">
+            <img src="justicia-social-aguascalientes.jpg" alt="Gráfico sobre justicia social de PAZ Aguascalientes">
+          </div>
+          <div class="content-card">
+            <div class="eyebrow">mensaje destacado</div>
+            <h3>No puede haber <span style="color:var(--p)">PAZ</span> sin justicia social.</h3>
+            <p>La paz no significa solamente vivir sin conflictos. También significa construir una sociedad donde todas las personas tengan oportunidades para salir adelante, trabajar con dignidad y desarrollar su potencial.</p>
+            <p>Cuando existen desigualdades que limitan las oportunidades, la paz también se pone en riesgo. Por eso, una web política fuerte debe hablar no sólo de ideales, sino de condiciones reales de vida.</p>
+            <div class="bullet-list">
+              <div class="bullet"><i>•</i><div><strong>Oportunidades:</strong> que nadie se quede atrás.</div></div>
+              <div class="bullet"><i>•</i><div><strong>Dignidad:</strong> empleo, esfuerzo y desarrollo con respeto.</div></div>
+              <div class="bullet"><i>•</i><div><strong>Unidad:</strong> que las diferencias no se conviertan en división.</div></div>
+            </div>
+            <div class="tagrow">
+              <span class="tag">Más oportunidades</span>
+              <span class="tag">Más dignidad</span>
+              <span class="tag">Más PAZ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="salud">
+      <div class="container band-grid">
+        <div>
+          <div class="eyebrow" style="color:#fff">salud mental</div>
+          <h2>La PAZ también es salud mental.</h2>
+          <p class="muted">En las publicaciones compartidas aparece una línea importante: la prevención del suicidio y el valor de hablar del tema con empatía. En una web, esto puede convertirse en una sección informativa con mensajes responsables, directorios y campañas de concientización.</p>
+          <div class="metric-row">
+            <div class="metric">
+              <strong>12.0</strong>
+              <span>Aguascalientes · tasa mostrada en la gráfica por cada 100 mil habitantes.</span>
+            </div>
+            <div class="metric">
+              <strong>13.8</strong>
+              <span>Chihuahua aparece como el valor más alto en la imagen compartida.</span>
+            </div>
+            <div class="metric">
+              <strong>13.7</strong>
+              <span>Yucatán también aparece entre los estados destacados en la gráfica.</span>
+            </div>
+          </div>
+        </div>
+        <div class="map-card">
+          <img src="salud-mental-aguascalientes.jpg" alt="Gráfica sobre tasas de suicidio en 2025">
+          <small>La imagen usada aquí proviene del material que compartiste. En una versión futura de la web, esta sección puede enlazar a fuentes oficiales, campañas, líneas de ayuda y contenido preventivo permanente.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="meaning" id="significado">
+      <div class="container">
+        <div class="section-title">
+          <div class="eyebrow">narrativa</div>
+          <h2>¿Qué significa PAZ para nosotros?</h2>
+          <p>La gráfica compartida en morado puede traducirse a una sección muy poderosa dentro del sitio: una definición concreta y humana de lo que PAZ representa en la vida cotidiana de la ciudadanía.</p>
+        </div>
+
+        <div class="meaning-grid">
+          <div class="quote-card">
+            <div class="quote-big">PAZ es vivir <span>tranquilo</span>, salir adelante y volver a casa con seguridad.</div>
+            <p style="color:var(--muted);margin:0">Más que ausencia de violencia, aquí la paz se plantea como seguridad, libertad y dignidad para todas y todos.</p>
+            <div class="checklist">
+              <div class="check"><b>✓</b><div>Poder caminar por tu colonia, tu pueblo o tu ciudad con tranquilidad.</div></div>
+              <div class="check"><b>✓</b><div>Que una madre sepa que sus hijos regresarán seguros a casa.</div></div>
+              <div class="check"><b>✓</b><div>Tener un trabajo digno y que el esfuerzo alcance para mantener a tu familia.</div></div>
+              <div class="check"><b>✓</b><div>Poder abrir un pequeño negocio y salir adelante sin vivir con miedo.</div></div>
+            </div>
+
+            <div class="mini-grid">
+              <div class="mini-card">
+                <h4>Diálogo civil</h4>
+                <p>La política no tiene que convertirse en guerra; la página puede insistir en el respeto y el encuentro.</p>
+              </div>
+              <div class="mini-card">
+                <h4>Comunidad</h4>
+                <p>Un diseño cálido y directo hace que el mensaje se sienta cercano a familias, jóvenes y ciudadanía.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="image-card" style="margin-bottom:18px">
+              <img src="significado-paz-aguascalientes.jpg" alt="¿Qué significa paz para nosotros?">
+            </div>
+            <div class="image-card">
+              <img src="dialogo-aguascalientes.jpg" alt="Podemos pensar distinto sin convertirnos en enemigos">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="sumate">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-grid">
+            <div>
+              <div class="eyebrow">cierre del sitio</div>
+              <h2>Una base visual lista para crecer.</h2>
+              <p>Esta versión ya queda pensada como landing page real para GitHub Pages: responsive, en un solo HTML y con archivos de imagen en la raíz. Después se le pueden agregar noticias, comité estatal, agenda, contacto oficial, secciones por temas, formulario de afiliación y botones a redes.</p>
+              <div class="cta-actions">
+                <a class="btn primary" href="#inicio">Volver arriba</a>
+                <a class="btn secondary" href="#ejes">Revisar estructura</a>
+              </div>
+            </div>
+            <aside class="contact-box">
+              <h3>Qué ya incluye</h3>
+              <ul>
+                <li>Diseño responsive y visualmente más fuerte.</li>
+                <li>Estilo alineado al material compartido.</li>
+                <li>Secciones para justicia social, salud mental y comunidad.</li>
+                <li>Archivos planos en raíz para subir fácil desde celular.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>PAZ Aguascalientes · demo web inspirada en el estilo visual de sus publicaciones.</div>
+      <div>Archivo listo para GitHub Pages.</div>
+    </div>
+  </footer>
+</body>
+</html>
