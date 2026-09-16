@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#672578">
+<title>PAZ Durango — Propuesta web</title>
+<style>
+:root{
+  --purple:#672578;
+  --purple-2:#813795;
+  --purple-3:#a764b5;
+  --green:#4cae61;
+  --gold:#c9a25d;
+  --sand:#efe3cf;
+  --ink:#241d28;
+  --muted:#6f6672;
+  --white:#fff;
+  --bg:#faf8fb;
+  --line:#e8dfea;
+  --shadow:0 20px 55px rgba(70,25,80,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,calc(100% - 30px));margin:auto}
+.demo{background:#2d1234;color:#fff;text-align:center;padding:8px 12px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(103,37,120,.08)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 8px 22px rgba(60,20,70,.14)}
+.brand small{display:block;color:var(--purple);font-size:9px;text-transform:uppercase;letter-spacing:.14em;margin-top:2px}
+.links{display:flex;gap:20px;align-items:center;font-size:13px;font-weight:800}
+.links a:hover{color:var(--purple)}
+.cta{background:var(--purple);color:#fff;padding:11px 16px;border-radius:999px}
+
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 20%,rgba(76,174,97,.12),transparent 22%),
+    radial-gradient(circle at 88% 12%,rgba(201,162,93,.13),transparent 22%),
+    linear-gradient(180deg,#fff 0%,#f4edf6 100%)
+}
+.hero:before{content:"";position:absolute;right:-120px;bottom:-120px;width:380px;height:380px;border-radius:50%;border:80px solid rgba(103,37,120,.05)}
+.hero-grid{min-height:670px;display:grid;grid-template-columns:.93fr 1.07fr;gap:45px;align-items:center;padding:56px 0;position:relative;z-index:1}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 14px;color:var(--purple);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{font-size:clamp(54px,7vw,92px);line-height:.88;letter-spacing:-.06em;margin:18px 0}
+.hero h1 span{color:var(--purple)}
+.hero p{color:var(--muted);font-size:16px;line-height:1.72;max-width:620px}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 18px;font-size:13px;font-weight:900}
+.btn-main{background:var(--purple);color:#fff}
+.btn-alt{background:#fff;border:1px solid var(--purple);color:var(--purple)}
+
+.hero-art{position:relative;min-height:560px}
+.frame{position:absolute;inset:30px 0 15px 38px;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);background:#ddd}
+.frame img{width:100%;height:100%;object-fit:cover}
+.frame:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(46,13,52,.42))}
+.logo-card{position:absolute;top:0;left:0;z-index:4;background:#fff;padding:11px;border-radius:50%;width:140px;height:140px;box-shadow:var(--shadow)}
+.logo-card img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.info-chip{position:absolute;right:15px;bottom:25px;z-index:4;width:230px;background:#fff;border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.info-chip small{font-size:10px;color:var(--purple);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.info-chip h3{font-size:24px;line-height:1.02;margin:8px 0}
+.info-chip p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}
+
+.band{height:14px;display:grid;grid-template-columns:2fr 1fr 1fr}
+.band span:nth-child(1){background:var(--purple)}
+.band span:nth-child(2){background:var(--gold)}
+.band span:nth-child(3){background:var(--green)}
+
+section{padding:76px 0}
+.eyebrow{color:var(--purple);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(38px,5vw,60px);line-height:.97;letter-spacing:-.045em;margin:0 0 14px}
+.section-head{max-width:820px;margin-bottom:30px}
+.section-head p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+
+.identity{background:#fff}
+.identity-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+.identity-photo{border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
+.identity-photo img{width:100%;height:100%;object-fit:cover;min-height:520px}
+.cards{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 12px 30px rgba(59,19,67,.05)}
+.card.color{background:linear-gradient(135deg,var(--purple),var(--purple-2));color:#fff;border:0}
+.card h3{font-size:28px;line-height:1;margin:0 0 10px}
+.card p{margin:0;color:var(--muted);line-height:1.65}
+.card.color p{color:#eaddef}
+.palette{display:flex;gap:10px;margin-top:18px}
+.palette i{display:block;width:36px;height:36px;border-radius:12px}
+.palette i:nth-child(1){background:var(--purple)}
+.palette i:nth-child(2){background:var(--purple-3)}
+.palette i:nth-child(3){background:var(--gold)}
+.palette i:nth-child(4){background:var(--green)}
+.palette i:nth-child(5){background:var(--sand)}
+
+.history{background:#f4eef5}
+.history-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:22px;align-items:center}
+.history-img{border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:#fff;padding:10px}
+.history-img img{border-radius:22px;width:100%;height:auto}
+.history-copy{background:#fff;border:1px solid var(--line);border-radius:30px;padding:34px;box-shadow:var(--shadow)}
+.history-copy h3{font-size:38px;line-height:.98;letter-spacing:-.04em;margin:0 0 14px}
+.history-copy p{color:var(--muted);line-height:1.7}
+
+.public{background:#fff}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.news{background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:0 12px 30px rgba(59,19,67,.06)}
+.news img{width:100%;height:350px;object-fit:cover}
+.news-copy{padding:24px}
+.news-copy small{color:var(--purple);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.news-copy h3{font-size:26px;line-height:1.03;margin:8px 0 10px}
+.news-copy p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+.community{background:linear-gradient(135deg,#321338,#61226e 65%,#7b3488);color:#fff;position:relative;overflow:hidden}
+.community:before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;right:-150px;bottom:-190px;background:rgba(255,255,255,.06)}
+.community-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:center;position:relative;z-index:1}
+.community h2{color:#fff}
+.community p{color:#eaddef;line-height:1.72}
+.community-img{background:#fff;border-radius:28px;padding:10px;box-shadow:var(--shadow)}
+.community-img img{width:100%;border-radius:20px}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.mini{padding:15px;border-radius:18px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);font-size:13px}
+
+.org{background:#f8f5f8}
+.org-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.org-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:12px;box-shadow:var(--shadow)}
+.org-card img{width:100%;height:330px;object-fit:cover;border-radius:20px}
+.org-copy{padding:18px 12px 12px}
+.org-copy h3{font-size:25px;margin:0 0 9px}
+.org-copy p{color:var(--muted);line-height:1.6;margin:0}
+
+.contact{background:#fff}
+.contact-box{border:1px solid var(--line);border-radius:32px;padding:38px;background:linear-gradient(135deg,#fff,#f4ebf6);box-shadow:var(--shadow)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.contact-box h2{font-size:52px}
+.contact-panel{background:linear-gradient(135deg,var(--purple),var(--purple-2));color:#fff;border-radius:26px;padding:26px}
+.contact-panel h3{font-size:28px;margin:0 0 10px}
+.contact-panel p{color:#eaddef;margin:0 0 12px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:13px}
+.row:last-child{border-bottom:0}
+
+footer{background:#26112d;color:#fff;padding:30px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot small{color:#ffffff8f;line-height:1.6}
+
+@media(max-width:900px){
+ .links a:not(.cta){display:none}
+ .hero-grid,.identity-grid,.history-grid,.community-grid,.contact-grid{grid-template-columns:1fr}
+ .news-grid,.org-grid{grid-template-columns:1fr}
+ .hero-art{min-height:520px}
+}
+@media(max-width:600px){
+ .container{width:min(100% - 22px,1180px)}
+ .nav{min-height:70px}
+ .brand img{width:50px;height:50px}
+ .hero-grid{padding:38px 0 48px;min-height:auto}
+ .hero h1{font-size:56px}
+ .hero p{font-size:15px}
+ .hero-art{min-height:455px}
+ .frame{inset:48px 0 12px 10px;border-radius:25px}
+ .logo-card{width:112px;height:112px}
+ .info-chip{width:190px;right:8px;bottom:18px}
+ section{padding:58px 0}
+ h2{font-size:40px}
+ .identity-photo img{min-height:400px}
+ .history-copy h3{font-size:30px}
+ .news img,.org-card img{height:290px}
+ .contact-box{padding:26px}
+ .contact-box h2{font-size:38px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Propuesta visual · Sitio demostrativo para PAZ Durango</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio">
+      <img src="logo-paz-durango.jpg" alt="PAZ Durango">
+      <div>PAZ Durango<small>Comité Estatal</small></div>
+    </a>
+    <nav class="links">
+      <a href="#identidad">Identidad</a>
+      <a href="#historia">Historia</a>
+      <a href="#actualidad">Actualidad</a>
+      <a class="cta" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Durango · México</div>
+      <h1><span>PAZ</span><br>DURANGO.</h1>
+      <p>Una propuesta web institucional inspirada en la imagen que ya utiliza el Comité Estatal: morado profundo, composición sobria y elementos visuales asociados con la historia, la vida pública y la identidad duranguense.</p>
+      <p>La estructura separa información del comité, actualidad, participación en procesos públicos, contenido social y vías de contacto.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="#actualidad">Ver actualidad</a>
+        <a class="btn btn-alt" href="#contacto">Información de contacto</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="logo-card"><img src="logo-paz-durango.jpg" alt="Logo PAZ Durango"></div>
+      <div class="frame"><img src="identidad-durango.jpg" alt="Comité Estatal PAZ Durango"></div>
+      <div class="info-chip">
+        <small>identidad estatal</small>
+        <h3>Morado, tierra y tradición.</h3>
+        <p>Una estética distinta a las demás versiones, con acentos dorados, arena y verde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"><span></span><span></span><span></span></div>
+
+<section class="identity" id="identidad">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Identidad visual</div>
+      <h2>Durango con una presencia más histórica y territorial.</h2>
+      <p>La línea gráfica usa el morado institucional como base y añade tonos tierra y dorados para diferenciar el sitio sin perder la identidad nacional de PAZ.</p>
+    </div>
+
+    <div class="identity-grid">
+      <div class="identity-photo"><img src="identidad-durango.jpg" alt="Identidad PAZ Durango"></div>
+      <div class="cards">
+        <article class="card color">
+          <h3>Comité Estatal</h3>
+          <p>Espacio para presentar estructura, representación estatal, documentos, comunicados y actividades.</p>
+        </article>
+        <article class="card">
+          <h3>Paleta Durango</h3>
+          <p>Morado institucional acompañado por dorado, arena y verde para dar una presencia propia al estado.</p>
+          <div class="palette"><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="card">
+          <h3>Contenido organizado</h3>
+          <p>Noticias, agenda pública, actividades del comité y materiales informativos agrupados por tema.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="history" id="historia">
+  <div class="container">
+    <div class="history-grid">
+      <div class="history-img"><img src="historia-durango.jpg" alt="Historia e identidad"></div>
+      <div class="history-copy">
+        <div class="eyebrow">Historia e identidad</div>
+        <h3>Un bloque visual para fechas cívicas y memoria pública.</h3>
+        <p>Las publicaciones compartidas incluyen contenido conmemorativo de la Independencia de México. En la web, este tipo de material puede tener una sección propia con contexto, fecha y archivo histórico.</p>
+        <p>Así el contenido deja de perderse en el flujo de redes sociales y queda disponible como parte del archivo institucional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="public" id="actualidad">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Actualidad institucional</div>
+      <h2>Proceso electoral, reuniones y actividad pública.</h2>
+      <p>La página puede presentar las actividades públicas en tarjetas claras, con fecha, categoría, imagen y enlace a la publicación original.</p>
+    </div>
+
+    <div class="news-grid">
+      <article class="news">
+        <img src="proceso-electoral-durango.jpg" alt="Proceso electoral en Durango">
+        <div class="news-copy">
+          <small>actividad pública</small>
+          <h3>Inicio del proceso electoral en Durango.</h3>
+          <p>Espacio para registrar participaciones, reuniones y actividades institucionales relacionadas con el proceso electoral.</p>
+        </div>
+      </article>
+      <article class="news">
+        <img src="reunion-ine-durango.jpg" alt="Reunión institucional">
+        <div class="news-copy">
+          <small>reuniones</small>
+          <h3>Reuniones de trabajo y coordinación institucional.</h3>
+          <p>Galerías y notas breves permiten conservar un registro ordenado de actividades públicas y reuniones.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <div class="container community-grid">
+    <div>
+      <div class="eyebrow" style="color:#d8b676">Temas sociales</div>
+      <h2>Seguridad y vida cotidiana.</h2>
+      <p>Entre el contenido compartido aparece también el tema de salir por la noche sin miedo. En una web institucional, estos materiales pueden clasificarse por seguridad, familia, juventud, convivencia y otros asuntos públicos.</p>
+      <div class="mini-grid">
+        <div class="mini">Seguridad y convivencia</div>
+        <div class="mini">Familia y comunidad</div>
+        <div class="mini">Juventud</div>
+        <div class="mini">Agenda pública</div>
+      </div>
+    </div>
+    <div class="community-img"><img src="vida-nocturna-durango.jpg" alt="Vida cotidiana y seguridad"></div>
+  </div>
+</section>
+
+<section class="org">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Organización</div>
+      <h2>Archivo de actividades y materiales institucionales.</h2>
+      <p>La web también puede separar contenido estatal de publicaciones nacionales para que la navegación sea más clara.</p>
+    </div>
+    <div class="org-grid">
+      <article class="org-card">
+        <img src="congreso-paz-durango.jpg" alt="Actividad nacional de PAZ">
+        <div class="org-copy">
+          <h3>Actividades de organización</h3>
+          <p>Registro de congresos, tomas de protesta, encuentros y otras actividades partidistas.</p>
+        </div>
+      </article>
+      <article class="org-card">
+        <img src="identidad-durango.jpg" alt="Comité Estatal Durango">
+        <div class="org-copy">
+          <h3>Comité Estatal Durango</h3>
+          <p>Una sección permanente para integrantes, estructura, documentos y vías oficiales de contacto.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="contact-box">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow">Contacto</div>
+          <h2>Información institucional en un solo lugar.</h2>
+          <p style="color:var(--muted);line-height:1.7">Esta demo está lista para GitHub Pages y puede ampliarse después con formularios, agenda, directorio, documentos descargables, noticias y enlaces oficiales.</p>
+          <div class="actions">
+            <a class="btn btn-main" href="#inicio">Volver al inicio</a>
+            <a class="btn btn-alt" href="#actualidad">Actualidad</a>
+          </div>
+        </div>
+        <aside class="contact-panel">
+          <h3>PAZ Durango</h3>
+          <p>Comité Estatal.</p>
+          <div class="row"><span>Facebook</span><b>Paz Durango</b></div>
+          <div class="row"><span>Ubicación</span><b>Victoria de Durango</b></div>
+          <div class="row"><span>Identidad</span><b>Morado · dorado · verde</b></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="logo-paz-durango.jpg" alt="PAZ Durango" style="width:50px;height:50px;object-fit:cover;border-radius:50%">
+      <div><b>PAZ Durango</b><br><small>Propuesta visual demostrativa.</small></div>
+    </div>
+    <small>Sitio estático listo para GitHub Pages.<br>Todos los archivos van directamente en la raíz.</small>
+  </div>
+</footer>
+</body>
+</html>
